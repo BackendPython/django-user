@@ -2,4 +2,4 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Admin(AbstractUser):
-    logo = models.ImageField(default='media/user.png')
+    logo = models.ImageField()

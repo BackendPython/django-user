@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="d-flex flex-column align-items-center text-center">
-    <form method="post">
+    <form method="POST">
       {% csrf_token %}
       {{ form }}
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -17,4 +17,9 @@
     </div>
   </div>
 
+  <style>
+*{
+    color: white;
+}
+  </style>
 {% endblock %}

@@ -19,7 +19,7 @@
                     <img src="{{ request.user.logo.url }}" alt="Your image" class="rounded-circle" width="150">
                     {% endif %}
                     {% if not request.user.logo %}
-                    <img src="{% static 'user.png' %}" alt="Your image" class="rounded-circle" width="150">
+                    <img src="{% static 'user.png' %}" alt="Your image" class="rounded-circle" width="150" height="150">
                     {% endif %}
                     <div class="mt-3">
                       <h4>{{ request.user.username }}</h4>
@@ -106,7 +106,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="{% url 'django:signup' %}">Edit</a>
+                      <a class="btn btn-info " href="{% url 'django:change-user' %}">Edit</a>
                     </div>
                   </div>
                 </div>
