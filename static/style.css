@@ -6,3 +6,6 @@
 body{
     background-color: rgb(12, 33, 95);
 }
+nav{
+    margin-top: 0px !important;
+}

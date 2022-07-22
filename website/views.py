@@ -14,3 +14,10 @@ class Registration(generic.CreateView):
     
     def get_success_url(self):
         return reverse('django:login')
+
+class ChangeImage(generic.CreateView):
+    template_name = 'registration/signup.html'
+    form_class = Easy
+    
+    def get_success_url(self):
+        return reverse('django:login')

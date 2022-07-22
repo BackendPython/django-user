@@ -9,4 +9,8 @@ class Easy(UserCreationForm):
         model = User
         fields = ("username","email")
         field_classes = {"username":UsernameField}
-        
+
+class UserImage(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ("logo")
