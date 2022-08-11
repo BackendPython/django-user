@@ -24,7 +24,7 @@
     </form>
     <div class="mt-3">
       <h4>{{ request.user.username }}</h4>
-      <p class="text-secondary mb-1">Full Stack Developer</p>
+      <p class="text-secondary mb-1">Full database</p>
       <p class="text-muted font-size-sm">Uzbekistan</p>
       <button class="btn btn-primary">Follow</button>
       <button class="btn btn-outline-primary">Message</button>
@@ -46,6 +46,11 @@
 .changed_image{
   width: 10%;
   border-radius: 50%;
+}
+
+.file-image{
+  display: grid;
+  margin-top: 20px;
 }
 
 .clearfix:before,
@@ -183,7 +188,12 @@ h1{
   </style>
 
 <script>
+  let user_image = document.querySelector('.changed_image')
   let inputfile = document.querySelector('.file-image')
+  inputfile.addEventListener('change', function hello(){
+    user_image.src = inputfile.value
+    console.log(inputfile.requestPointerLock());
+  })
 </script>
 
 {% endblock %}
