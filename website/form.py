@@ -1,9 +1,9 @@
-from dataclasses import fields
-from .models import *
-from django import forms
-
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth import get_user_model
+from dataclasses import fields
+from django import forms
+from .models import *
+
 User = get_user_model()
 
 class Easy(UserCreationForm):

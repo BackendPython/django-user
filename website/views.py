@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse
+from django.urls import reverse_lazy
 from django.views import generic
-from .models import Admin
+from .models import *
 from .form import *
 
 class Home(generic.TemplateView):
@@ -13,13 +14,11 @@ class Registration(generic.CreateView):
     def get_success_url(self):
         return reverse('django:login')
 
-def changeImage(request):
-    if request.method == "POST":
-        form = Img(request.POST)
-        if form.is_valid():
-            form.save()
-            return reverse("django:home")
-    else:
-        form = Img()
-    
-    return render(request, 'change-user.html', {"form":form})
+
+class ChangeImg(generic.UpdateView):
+    form_class = Img
+    template_name = "change-user.html"
+    success_url = reverse_lazy("django:home")
+
+    def get_object(self):
+        return self.request.user
