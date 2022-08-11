@@ -4,7 +4,12 @@
 {% block content %}
 
 <div class="d-flex flex-column align-items-center text-center">
-  <img src="{{ request.user.logo.url }}" alt="error" class="changed_image">
+  {% if request.user.logo %}
+  <img src="{{ request.user.logo.url }}" alt="Your image" class="changed_image">
+  {% endif %}
+    {% if not request.user.logo %}
+    <img src="{% static 'user.png' %}" alt="Your image" class="changed_image">
+    {% endif %}
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {% if next %}
