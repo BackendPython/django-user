@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import *
@@ -14,7 +14,6 @@ class Registration(generic.CreateView):
     def get_success_url(self):
         return reverse('django:login')
 
-
 class ChangeImg(generic.UpdateView):
     form_class = Img
     template_name = "change-user.html"
@@ -22,3 +21,18 @@ class ChangeImg(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+    
+def addFile(request):
+    if request.method == "POST":
+        form = FileSubmit(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("django:chart")
+    else:
+        form = User()
+
+    context = {
+        "form": form,
+        "file": Files.objects.all(),
+    }
+    return render(request, "home.html", context)

@@ -17,7 +17,7 @@ class Img(forms.ModelForm):
         model = Admin
         fields = ("logo",)
 
-class Img(forms.ModelForm):
+class FileSubmit(forms.ModelForm):
     class Meta:
         model = Files
         fields = ("file","file_name")
