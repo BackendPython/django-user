@@ -17,7 +17,7 @@ class Registration(generic.CreateView):
 
 class ChangeImg(generic.UpdateView):
     form_class = Img
-    template_name = "change-user.slim"
+    template_name = "change-user.html"
     success_url = reverse_lazy("django:home")
 
     def get_object(self):
