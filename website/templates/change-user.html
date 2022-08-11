@@ -1,7 +1,9 @@
 {% extends 'index.html' %}
+{% load static %}
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'file.less' %}">
 <div class="d-flex flex-column align-items-center text-center">
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
