@@ -31,9 +31,25 @@
                   </div>
                 </div>
               </div>
+
+              <!-- users files -->
               <div class="card mt-3">
-                
+
+                                <!--
+                The classic file input element we'll enhance to a file pond
+                -->
+                <input type="file" 
+                class="filepond"
+                name="filepond"
+                multiple
+                data-max-file-size="2000MB"
+                data-max-files="null" />
+
+                <!-- file upload itself is disabled in this pen -->
+
               </div>
+              <!-- end user files -->
+
             </div>
             <div class="col-md-8">
               <div class="card mb-3">
@@ -150,6 +166,8 @@
 .shadow-none {
     box-shadow: none!important;
 }
+
+
 </style>
 {% endif %}
 
