@@ -33,6 +33,6 @@ def addfile(request):
 
     context = {
         "form": form,
-        "file": Files.objects.all(),
+        "file": Admin.objects.all(),
     }
     return render(request, "home.html", context)
