@@ -1,8 +1,11 @@
+{% extends 'index.html' %}
 {% load static %}
 {% block content %}
 
 <!-- user sign up -->
 
+<link rel="stylesheet" href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css">
+<link rel="stylesheet" href="https://unpkg.com/filepond/dist/filepond.min.css">
 
 <!-- user login -->
 
@@ -35,17 +38,17 @@
               <!-- users files -->
               <div class="card mt-3">
 
-                                <!--
-                The classic file input element we'll enhance to a file pond
-                -->
-                <input type="file" 
-                class="filepond"
-                name="filepond"
-                multiple
-                data-max-file-size="2000MB"
-                data-max-files="null" />
+              <!--
+              The classic file input element we'll enhance to a file pond
+              -->
+              <input type="file" 
+                    class="filepond"
+                    name="filepond"
+                    multiple
+                    data-max-file-size="3MB"
+                    data-max-files="3" />
 
-                <!-- file upload itself is disabled in this pen -->
+              <!-- file upload itself is disabled in this pen -->
 
               </div>
               <!-- end user files -->
@@ -175,4 +178,34 @@
 <h1 class="text-center mt-5 text-light">Plaese register our site</h1>
 {% endif %}
 
+
+<script>
+  /*
+We want to preview images, so we need to register the Image Preview plugin
+*/
+FilePond.registerPlugin(
+	
+	// encodes the file as base64 data
+  FilePondPluginFileEncode,
+	
+	// validates the size of the file
+	FilePondPluginFileValidateSize,
+	
+	// corrects mobile image orientation
+	FilePondPluginImageExifOrientation,
+	
+	// previews dropped images
+  FilePondPluginImagePreview
+);
+
+// Select the file input and use create() to turn it into a pond
+FilePond.create(
+	document.querySelector('input')
+);
+</script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
 {% endblock %}
