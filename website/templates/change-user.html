@@ -10,6 +10,7 @@
     {% if not request.user.logo %}
     <img src="{% static 'user.png' %}" alt="Your image" class="changed_image">
     {% endif %}
+    <h4 class="mt-3">{{ request.user.username }}</h4>
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {% if next %}
@@ -22,178 +23,28 @@
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <div class="mt-3">
-      <h4>{{ request.user.username }}</h4>
-      <p class="text-secondary mb-1">Full database</p>
-      <p class="text-muted font-size-sm">Uzbekistan</p>
-      <button class="btn btn-primary">Follow</button>
-      <button class="btn btn-outline-primary">Message</button>
-    </div>
   </div>
 
   <style>
-    body{
-      background-color: white;
-    }
-    
-*,
-*:after,
-*:before {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
+      body{
+        background-color: white;
+      }
+      .changed_image{
+        width: 10%;
+        border-radius: 50%;
+      }
 
-.changed_image{
-  width: 10%;
-  border-radius: 50%;
-}
-
-.file-image{
-  display: grid;
-  margin-top: 20px;
-}
-
-.clearfix:before,
-.clearfix:after {
-	display: table;
-	content: '';
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-
-
-a {
-	outline: none;
-	color: #d3394c;
-	text-decoration: none;
-}
-
-a:hover,
-a:focus {
-	color: #722040;
-}
-
-.hidden {
-	position: absolute;
-	overflow: hidden;
-	width: 0;
-	height: 0;
-	pointer-events: none;
-}
-
-h1{
-	text-align: center;
-}
-/* Content */
-
-.content {
-	width: 100%;
-	max-width: 800px;
-	text-align: center;
-	margin: 0 auto;
-	padding: 0 0 3em 0;
-}
-
-.content footer {
-	color: #b39295;
-	margin-top: 40px;
-}
-
-.content footer a:hover,
-.content footer a:focus {
-	color: #4b0f31;
-}
-
-.box {
-  margin-top: 20px;
-  margin-bottom: 40px;
-	background-color: #fbfbfb;
-}
-
-.box + .box {
-	margin-top: 2.5rem;
-}
-
-/********** File Input Style starts here ********/
-
-.inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;   
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-.inputfile + label {
-    max-width: 80%;
-    font-size: 1.25rem;
-    /* 20px */
-    font-weight: 700;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    padding: 0.625rem 1.25rem;
-    /* 10px 20px */
-}
-
-.no-js .inputfile + label {
-    display: none;
-}
-
-.inputfile:focus + label,
-.inputfile.has-focus + label {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
-}
-
-
-
-.inputfile + label svg {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    fill: currentColor;
-    margin-top: -0.25em;
-    /* 4px */
-    margin-right: 0.25em;
-    /* 4px */
-}
-
-
-/* style 1 */
-
-.inputfile-1 + label {
-    color: #f1e5e6;
-    background-color: #d3394c;
-}
-
-.inputfile-1:focus + label,
-.inputfile-1.has-focus + label,
-.inputfile-1 + label:hover {
-    background-color: #722040;
-}
-
-@media screen and (max-width: 750px) {
-  .user-image{
-    width: 50%;
-  }
-}
-
+      .file-image{
+        width: 34%;
+        display: grid;
+        margin-top: 20px;
+        margin-left: 32%;
+      }
+      @media screen and (max-width: 750px) {
+        .changed_image{
+          width: 50%;
+        }
+      }
   </style>
-
-<script>
-  let user_image = document.querySelector('.changed_image')
-  let inputfile = document.querySelector('.file-image')
-  inputfile.addEventListener('change', function hello(){
-    user_image.src = inputfile.value
-    console.log(inputfile.requestPointerLock());
-  })
-</script>
 
 {% endblock %}
