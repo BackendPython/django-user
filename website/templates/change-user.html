@@ -5,9 +5,12 @@
 <div class="d-flex flex-column align-items-center text-center">
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
+      {% if next %}
+      <input type="hidden" name="text" value="{{ text }}">
+      {% endif %}
       <span class="control-fileupload">
         <label for="fileInput">Choose a file :</label>
-        <input type="file" id="fileInput">
+        <input type="file" id="fileInput" name="logo">
       </span>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -21,10 +24,13 @@
   </div>
 
   <style>
-body{
-  background-color: white;
-}
+    body{
+      background-color: white;
+    }
   </style>
+
+
+
   <script>
     $(function() {
   $('input[type=file]').change(function(){
@@ -34,4 +40,9 @@ body{
   })
 });
   </script>
+
+
+
+
+
 {% endblock %}
