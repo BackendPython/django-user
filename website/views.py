@@ -22,14 +22,14 @@ class ChangeImg(generic.UpdateView):
     def get_object(self):
         return self.request.user
     
-def addFile(request):
+def addfile(request):
     if request.method == "POST":
         form = FileSubmit(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("django:chart")
+            return redirect("/")
     else:
-        form = User()
+        form = FileSubmit()
 
     context = {
         "form": form,
