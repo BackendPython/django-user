@@ -16,3 +16,8 @@ class Img(forms.ModelForm):
     class Meta:
         model = Admin
         fields = ("logo",)
+
+class Img(forms.ModelForm):
+    class Meta:
+        model = Files
+        fields = ("file","file_name")
