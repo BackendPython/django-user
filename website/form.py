@@ -15,9 +15,9 @@ class Easy(UserCreationForm):
 class Img(forms.ModelForm):
     class Meta:
         model = Admin
-        fields = ("logo",)
+        fields = ("logo","file","file_name",)
 
-class FileSubmit(forms.ModelForm):
-    class Meta:
-        model = Files
-        fields = ("file","file_name")
+# class FileSubmit(forms.ModelForm):
+#     class Meta:
+#         model = Files
+#         fields = ("file","file_name")

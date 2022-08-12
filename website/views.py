@@ -22,17 +22,17 @@ class ChangeImg(generic.UpdateView):
     def get_object(self):
         return self.request.user
     
-def addfile(request):
-    if request.method == "POST":
-        form = FileSubmit(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("/")
-    else:
-        form = FileSubmit()
+# def addfile(request):
+#     if request.method == "POST":
+#         form = FileSubmit(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("/")
+#     else:
+#         form = FileSubmit()
 
-    context = {
-        "form": form,
-        "file": Admin.objects.all(),
-    }
-    return render(request, "home.html", context)
+#     context = {
+#         "form": form,
+#         "file": Admin.objects.all(),
+#     }
+#     return render(request, "home.html", context)
