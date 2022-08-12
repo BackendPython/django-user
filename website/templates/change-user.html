@@ -11,18 +11,38 @@
     <img src="{% static 'user.png' %}" alt="Your image" class="changed_image">
     {% endif %}
     <h4 class="mt-3">{{ request.user.username }}</h4>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" class="d-grid align-items-center">
       {% csrf_token %}
       {% if next %}
       <input type="hidden" name="text" value="{{ text }}">
       {% endif %}
 
       <!-- test -->
-      <input type="file" name="logo" class="file-image">
+      <input type="file" name="logo" class="file-image mt-3">
+
+      <input type="file" name="file" class="file-ulpoad mt-3">
+
+      <input type="text" name="file_name" class="file-name mt-3">
+
       <!-- end test -->
 
       <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
+    {% for file in file %}
+              
+    <div class="card mt-3">
+
+      <div class="text-left d-flex align-items-center">
+        <div class="text">
+          <h1 class="text ms-5 mt-5 fs-3">{{ file }}</h1>
+          <p class="text ms-5 mb-4 mt-3">{{ file.file_name }}</p>
+          <button class="btn btn-primary mb-3 ms-5">Download</button>
+        </div>
+      </div>
+  
+    </div>
+
+    {% endfor %}
   </div>
 
   <style>
