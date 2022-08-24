@@ -4,45 +4,7 @@
 {% block content %}
 
 <div class="d-flex flex-column align-items-center text-center">
-  {% if request.user.logo %}
-  <img src="{{ request.user.logo.url }}" alt="Your image" class="changed_image">
-  {% endif %}
-    {% if not request.user.logo %}
-    <img src="{% static 'user.png' %}" alt="Your image" class="changed_image">
-    {% endif %}
-    <h4 class="mt-3">{{ request.user.username }}</h4>
-    <form method="POST" class="d-grid align-items-center">
-      {% csrf_token %}
-      {% if next %}
-      <input type="hidden" name="text" value="{{ text }}">
-      {% endif %}
 
-      <!-- test -->
-      <input type="file" name="logo" class="file-image mt-3">
-
-      <input type="file" name="file" class="file-ulpoad mt-3">
-
-      <input type="text" name="file_name" class="file-name mt-3">
-
-      <!-- end test -->
-
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
-    {% for file in form %}
-              
-    <div class="card mt-3">
-
-      <div class="text-left d-flex align-items-center">
-        <div class="text">
-          <h1 class="text ms-5 mt-5 fs-3">{{ file }}</h1>
-          <p class="text ms-5 mb-4 mt-3">{{ file.file_name }}</p>
-          <button class="btn btn-primary mb-3 ms-5">Download</button>
-        </div>
-      </div>
-  
-    </div>
-
-    {% endfor %}
   </div>
 
   <style>
